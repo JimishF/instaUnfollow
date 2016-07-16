@@ -29,7 +29,24 @@
 	maxLenIng = _x.following_elm.getElementsByTagName('span')[0].innerHTML;
 	maxLenEr = _x.followers_elm.getElementsByTagName('span')[0].innerHTML;
 
+	_x.oldVal = 0;
+	_x.repeatCount = 0;
+	_x.threeTimesRepeted = function(l){
+		if( _x.oldVal != l )
+		{
+			_x.oldVal = l;
+			_x.repeatCount = 0;
+			return false;
+		}
 
+		_x.repeatCount++;
+		if( _x.repeatCount == 3 ){
+			return true;
+		}
+		return false;
+
+
+	}
 	function updateFollowers(){
 		_x.f = document.getElementsByClassName("_4zhc5");
 		for(i=0;i<_x.f.length;i++){
@@ -93,7 +110,9 @@
 	function checkOutFollowing(){
 		
 	// {{{ this block clicks  on followers element
-	
+		_x.oldVal = 0;
+		_x.repeatCount = 0;
+
 		console.log(_x.line);
 		console.log('%c Fetching people you follow! [wait untill finishes] ', 'font-size:25px; color: #70c050;');
 
@@ -131,12 +150,13 @@
 
 	function flwerscr(){
 			
-				objDiv = document.getElementsByClassName("_4gt3b")[0];
-
+			objDiv = document.getElementsByClassName("_4gt3b")[0];
 			divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
-			if( maxLenEr > divlen ){							
+			
+			// console.log(maxLenEr ,divlen);
+
+			if( maxLenEr > divlen && ! _x.threeTimesRepeted(divlen) ){							
 				objDiv.scrollTop = objDiv.scrollHeight;		
-			// console.log(maxLen,divlen);
 				setTimeout(function(){
 					_x.following_elm.dispatchEvent(eventEr);
 					
@@ -146,8 +166,13 @@
 			else{
 				updateFollowers();
 				_x.closeBtn = document.getElementsByClassName('_3eajp')[0];
+				console.log(_x);
 				_x.closeBtn.click();
-				checkOutFollowing();
+				// return;
+				// setTimeout(function(){
+					checkOutFollowing();
+					
+				// },500);
 				return;
 				
 			}
@@ -156,32 +181,33 @@
 
 	function flwngscr(){
 			
-				objDiv = document.getElementsByClassName("_4gt3b")[0];
+			objDiv	= document.getElementsByClassName("_4gt3b")[0];
+			divlen	= objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
-			divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
-
-			// console.log(maxLen,divlen);
-			if( maxLenIng > divlen ){							
+			// _x.threeTimesRepeted(divlen);
+			if( maxLenIng > divlen  && ! _x.threeTimesRepeted(divlen) ){							
 				
-				objDiv.scrollTop = objDiv.scrollHeight;		
-				setTimeout(function(){
-					_x.following_elm.dispatchEvent(eventIng);
-				},1500)
+				objDiv.scrollTop 	= objDiv.scrollHeight;		
+				setTimeout( function(){
+					_x.following_elm.dispatchEvent( eventIng );
+				}, 1500)
 
 			}else{
 
 				updateFollowing();
 				// console.log(_x);
+				
 				console.clear();
-			console.log(_x.line);
-			console.log('%c Here is all what you Wanted. (People who dont follow you back)!!','font-size:25px; color: red');
-			console.log(_x.line);
-			alert("Checkout popup");	
+				console.log(_x.line);
+				console.log('%c Here is all what you Wanted. (People who dont follow you back)!!','font-size:25px; color: red');
+				console.log(_x.line);
+				alert("Checkout popup");	
 
 					for (var i = 0; i<_x.notFollowBack.length ; i++ ) {
 						console.log((i+1)+"> %chttps://instagram.com/"+_x.notFollowBack[i],'font-size:16px;color:blue;text-decoration:underline');
 					}
-			console.log('%c Checkout Popup !! ', 'font-size:25px; color: #70c050;');
+				
+				console.log('%c Checkout Popup !! ', 'font-size:25px; color: #70c050;');
 				return;
 			}
 	}
@@ -190,7 +216,7 @@
 
 			_x.followers_elm.getElementsByTagName('a')[0].click();
 			setTimeout(function(){
-					
+				_x.tempContinude = 0;
 				// console.log(objDiv.getElementsByTagName('ul'));
 				flwerscr();
 			},1500);

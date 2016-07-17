@@ -12,4 +12,4 @@ check people don't follow you back on instagram.
 
 
 <hr>
-<b> (Actully this works on anyone's Instagram proile. Means you can look into my Unfollowers too XD)
+<b> (Actully this works on anyone's Instagram profile. Means you can look into my Unfollowers too XD)

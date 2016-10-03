@@ -149,7 +149,9 @@
 	document.addEventListener("flwngScrlDwn", flwngscr, false);
 
 	function flwerscr(){
-			
+			try{
+
+
 			objDiv = document.getElementsByClassName("_4gt3b")[0];
 			divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
 			
@@ -176,11 +178,17 @@
 				return;
 				
 			}
+		}catch(e){
+				console.clear();
+				console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
+		}
 	}
 
 
 	function flwngscr(){
-			
+		try{
+
+
 			objDiv	= document.getElementsByClassName("_4gt3b")[0];
 			divlen	= objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
@@ -210,6 +218,10 @@
 				console.log('%c Checkout Popup !! ', 'font-size:25px; color: #70c050;');
 				return;
 			}
+		}catch(e){
+			console.clear();
+			console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
+		}
 	}
 
 	// {{{ this block clicks  on following element

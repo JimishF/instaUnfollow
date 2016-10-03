@@ -1,6 +1,6 @@
 /*
   Script-Writter     : <Jimish Fotariya>
-  CAUTION   : Use this script at your own risk :P [btw i'm use this too, so nothing to worry ;) ]
+  CAUTION   : Use this script at your own risk :P [btw i use this too, so nothing to worry ;) ]
   PRIVACY   : By using this script, Nothing will affect on your privacy of account.
   SECURITY  : Your PHOTOS & PASSWORD will be still secure because nothing is related to spoof in this script.
   

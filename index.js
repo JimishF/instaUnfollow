@@ -15,7 +15,7 @@
 	_x = {};
 	objDiv = {};
 
-	_x.line = (function(){ 
+	_line = (function(){ 
 		var ln = "-"; for(var o = 0 ; o <= 100; o++)
 			ln+="-";
 			return ln;
@@ -47,23 +47,19 @@
 
 
 	}
+
 	function updateFollowers(){
 		_x.f = document.getElementsByClassName("_4zhc5");
 		for(i=0;i<_x.f.length;i++){
-
 			if( _x.f[i] != undefined ){
 				_x.followers.push( _x.f[i].innerHTML );	
 			}
-
 		}
 	}
-
 	function updateFollowing(){
-
 		_x.f = document.getElementsByClassName("_4zhc5");
 						
 			for(i=0;i<_x.f.length;i++){
-
 				if( _x.f[i] != undefined ){
 					_x.following.push( _x.f[i].innerHTML );	
 				}
@@ -73,7 +69,6 @@
 			_x.notFollowBack = Array();
 
 			for(i=0;i<_x.following.length;i++){
-
 				if ( ! _x.followers.includes( _x.following[i] ) ){
 					_x.notFollowBack.push( _x.following[i] );
 				}
@@ -88,9 +83,8 @@
 					try{
 						var tmpUname = ((_x.f[i]).getElementsByClassName("_4zhc5"))[0].innerHTML;
 					
-						if(  _x.notFollowBack.includes( tmpUname ) ){
-							
-						console.log(_x.f[i]);
+						if( _x.notFollowBack.includes( tmpUname ) ){
+							console.log(_x.f[i]);
 							// console.log( tmpUname );
 						}else{
 							console.log(_x.f[i]);
@@ -98,34 +92,27 @@
 							// document.getElementsByClassName('_539vh')[0].removeChild(_x.f[i]);	
 							// i--;
 						}
-					}catch(e){
-
-					}
+					}catch(e){}
 				}
 			}
-
-
 	}
 
-	function checkOutFollowing(){
-		
-	// {{{ this block clicks  on followers element
+////// {{{ this block clicks  on followers element
+	function checkOutFollowing(){	
 		_x.oldVal = 0;
 		_x.repeatCount = 0;
 
-		console.log(_x.line);
+		console.log(_line);
 		console.log('%c Fetching people you follow! [wait untill finishes] ', 'font-size:25px; color: #70c050;');
 
 			_x.following_elm.getElementsByTagName('a')[0].click();
 			setTimeout(function(){
-					
 				objDiv = document.getElementsByClassName("_4gt3b")[0];
 				// console.log(objDiv.getElementsByTagName('ul'));
 				flwngscr();
 			},1500);
-		 
-	// }}}
 	}
+////// }}}
 
 
 	var eventIng = new CustomEvent(
@@ -149,35 +136,29 @@
 	document.addEventListener("flwngScrlDwn", flwngscr, false);
 
 	function flwerscr(){
-			try{
-
-
-			objDiv = document.getElementsByClassName("_4gt3b")[0];
-			divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
-			
-			// console.log(maxLenEr ,divlen);
-
-			if( maxLenEr > divlen && ! _x.threeTimesRepeted(divlen) ){							
-				objDiv.scrollTop = objDiv.scrollHeight;		
-				setTimeout(function(){
-					_x.following_elm.dispatchEvent(eventEr);
-					
-				},1500)
-
-			}
-			else{
-				updateFollowers();
-				_x.closeBtn = document.getElementsByClassName('_3eajp')[0];
-				console.log(_x);
-				_x.closeBtn.click();
-				// return;
-				// setTimeout(function(){
-					checkOutFollowing();
-					
-				// },500);
-				return;
+		try{
+				objDiv = document.getElementsByClassName("_4gt3b")[0];
+				divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
 				
-			}
+				// console.log(maxLenEr ,divlen);
+
+				if( maxLenEr > divlen && ! _x.threeTimesRepeted(divlen) ){							
+					objDiv.scrollTop = objDiv.scrollHeight;		
+					setTimeout(function(){
+						_x.following_elm.dispatchEvent(eventEr);
+					},1500)
+				}
+				else{
+					updateFollowers();
+					_x.closeBtn = document.querySelector('._3eajp');
+					console.log(_x);
+
+					_x.closeBtn.click();
+					setTimeout(function(){
+						checkOutFollowing();
+					},500);
+					return;	
+				}
 		}catch(e){
 				console.clear();
 				console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
@@ -187,8 +168,6 @@
 
 	function flwngscr(){
 		try{
-
-
 			objDiv	= document.getElementsByClassName("_4gt3b")[0];
 			divlen	= objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
@@ -206,9 +185,9 @@
 				// console.log(_x);
 				
 				console.clear();
-				console.log(_x.line);
+				console.log(_line);
 				console.log('%c Here is all what you Wanted. (People who dont follow you back)!!','font-size:25px; color: red');
-				console.log(_x.line);
+				console.log(_line);
 				alert("Checkout popup");	
 
 					for (var i = 0; i<_x.notFollowBack.length ; i++ ) {
@@ -223,9 +202,7 @@
 			console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
 		}
 	}
-
-	// {{{ this block clicks  on following element
-
+////// {{{ this block clicks  on followers element
 			_x.followers_elm.getElementsByTagName('a')[0].click();
 			setTimeout(function(){
 				_x.tempContinude = 0;
@@ -233,4 +210,4 @@
 				flwerscr();
 			},1500);
 		 
-	// }}}
+////// }}}

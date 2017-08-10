@@ -7,8 +7,23 @@
   if you are still afraid of using this then learn Javascript and DOM to see what i've written.
   
 */
+DEVMOD = false;
+function console_clear( e ){
+	if( !DEVMOD ){
+		console.clear();
+	}else if( e && e != undefined ){
+		console.error(e);
+	}
+}
 
-	console.clear();
+selectors = {
+	modalTrigger : '_bnq48',
+	unameElement : '_o5iw8',
+	userLi		:  '_6e4x5',
+	closeBtn 	:  '_dcj9f',
+	flwTitle 	: '_euzqy',
+}
+	console_clear();
 
 	console.log('%c Holdback now, Let me process (Do not touch anything).. ', 'font-size:25px; color: #CD2020');
 	console.log('%c Fetching your followers! [wait untill finishes] ', 'font-size:25px; color: #70c050;');
@@ -23,15 +38,17 @@
 
 	_x.followers = Array();
 	_x.following = Array();
-	_x.followers_elm = document.getElementsByClassName('_218yx')[1];
-	_x.following_elm = document.getElementsByClassName('_218yx')[2];
+	_x.followers_elm = document.getElementsByClassName( selectors.modalTrigger )[1];
+	_x.following_elm = document.getElementsByClassName( selectors.modalTrigger )[2];
+
+	// console.log( _x );
 
 	maxLenIng = _x.following_elm.getElementsByTagName('span')[0].innerHTML;
 	maxLenEr = _x.followers_elm.getElementsByTagName('span')[0].innerHTML;
 
 	_x.oldVal = 0;
 	_x.repeatCount = 0;
-	_x.threeTimesRepeted = function(l){
+	_x.TimesRepeted = function(l){
 		if( _x.oldVal != l )
 		{
 			_x.oldVal = l;
@@ -40,7 +57,7 @@
 		}
 
 		_x.repeatCount++;
-		if( _x.repeatCount == 3 ){
+		if( _x.repeatCount == 5 ){
 			return true;
 		}
 		return false;
@@ -49,7 +66,7 @@
 	}
 
 	function updateFollowers(){
-		_x.f = document.getElementsByClassName("_4zhc5");
+		_x.f = document.getElementsByClassName( selectors.unameElement );
 		for(i=0;i<_x.f.length;i++){
 			if( _x.f[i] != undefined ){
 				_x.followers.push( _x.f[i].innerHTML );	
@@ -57,7 +74,7 @@
 		}
 	}
 	function updateFollowing(){
-		_x.f = document.getElementsByClassName("_4zhc5");
+		_x.f = document.getElementsByClassName( selectors.unameElement );
 						
 			for(i=0;i<_x.f.length;i++){
 				if( _x.f[i] != undefined ){
@@ -75,13 +92,13 @@
 			}
 
 
-		_x.f = document.getElementsByClassName("_cx1ua");
-		document.getElementsByClassName("_q44m8")[0].innerHTML = "<b style='color:red'>People Not follow back !!</b>";
+		_x.f = document.getElementsByClassName( selectors.userLi );
+		document.getElementsByClassName( selectors.flwTitle )[0].innerHTML = "<b style='color:red'>People Not follow back !!</b>";
 
 			for(i in _x.f ){
 				if( _x.f[i] != undefined ){
 					try{
-						var tmpUname = ((_x.f[i]).getElementsByClassName("_4zhc5"))[0].innerHTML;
+						var tmpUname = ((_x.f[i]).getElementsByClassName( selectors.unameElement ))[0].innerHTML;
 					
 						if( _x.notFollowBack.includes( tmpUname ) ){
 							console.log(_x.f[i]);
@@ -102,7 +119,7 @@
 		_x.oldVal = 0;
 		_x.repeatCount = 0;
 
-		console.log(_line);
+		// console.log(_line);
 		console.log('%c Fetching people you follow! [wait untill finishes] ', 'font-size:25px; color: #70c050;');
 
 			_x.following_elm.getElementsByTagName('a')[0].click();
@@ -136,13 +153,13 @@
 	document.addEventListener("flwngScrlDwn", flwngscr, false);
 
 	function flwerscr(){
-		try{
-				objDiv = document.getElementsByClassName("_4gt3b")[0];
+		// try{
+				objDiv = document.getElementsByClassName("_gs38e")[0];
 				divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
 				
 				// console.log(maxLenEr ,divlen);
 
-				if( maxLenEr > divlen && ! _x.threeTimesRepeted(divlen) ){							
+				if( maxLenEr > divlen && ! _x.TimesRepeted(divlen) ){							
 					objDiv.scrollTop = objDiv.scrollHeight;		
 					setTimeout(function(){
 						_x.following_elm.dispatchEvent(eventEr);
@@ -150,7 +167,7 @@
 				}
 				else{
 					updateFollowers();
-					_x.closeBtn = document.querySelector('._3eajp');
+					_x.closeBtn = document.querySelector('.'+ selectors.closeBtn );
 					console.log(_x);
 
 					_x.closeBtn.click();
@@ -159,20 +176,20 @@
 					},500);
 					return;	
 				}
-		}catch(e){
-				console.clear();
-				console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
-		}
+		// }catch(e){
+		// 		console_clear( e );
+		// 		console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
+		// }
 	}
 
 
 	function flwngscr(){
 		try{
-			objDiv	= document.getElementsByClassName("_4gt3b")[0];
+			objDiv	= document.getElementsByClassName("_gs38e")[0];
 			divlen	= objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
-			// _x.threeTimesRepeted(divlen);
-			if( maxLenIng > divlen  && ! _x.threeTimesRepeted(divlen) ){							
+			// _x.TimesRepeted(divlen);
+			if( maxLenIng > divlen  && ! _x.TimesRepeted(divlen) ){							
 				
 				objDiv.scrollTop 	= objDiv.scrollHeight;		
 				setTimeout( function(){
@@ -184,7 +201,7 @@
 				updateFollowing();
 				// console.log(_x);
 				
-				console.clear();
+				console_clear();
 				console.log(_line);
 				console.log('%c Here is all what you Wanted. (People who dont follow you back)!!','font-size:25px; color: red');
 				console.log(_line);
@@ -198,7 +215,7 @@
 				return;
 			}
 		}catch(e){
-			console.clear();
+			console_clear( e );
 			console.log('%c ERROR :: You\'ve Interupted Process. Reload page and try again !! ', 'font-size:25px; color: red;');
 		}
 	}

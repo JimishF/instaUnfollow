@@ -14,11 +14,12 @@ function console_clear(e) {
 }
 
 selectors = {
-    modalTrigger: '_bnq48',
-    unameElement: '_o5iw8',
-    userLi: '_6e4x5',
-    closeBtn: '_dcj9f',
-    flwTitle: '_euzqy',
+    modalTrigger: 'Y8-fY',
+    unameElement: 'FPmhX',
+    userLi: 'NroHT',
+    closeBtn: 'ckWGn',
+    flwTitle: 't48Bo',
+    objDiv: "j6cq2"
 }
 console_clear();
 
@@ -45,7 +46,7 @@ _x.TimesRepeted = (l) => {
     }
 
     _x.repeatCount++;
-    if (_x.repeatCount == 55) {
+    if (_x.repeatCount == 40) {
         return true;
     }
     return false;
@@ -87,10 +88,10 @@ function updateFollowing() {
                 let tmpUname = ((_x.f[i]).getElementsByClassName(selectors.unameElement))[0].innerHTML;
 
                 if (_x.notFollowBack.includes(tmpUname)) {
-                    console.log(_x.f[i]);
+                    // console.log(_x.f[i]);
                     // console.log( tmpUname );
                 } else {
-                    console.log(_x.f[i]);
+                    // console.log(_x.f[i]);
                     _x.f[i].style.display = "none";
                     // document.getElementsByClassName('_539vh')[0].removeChild(_x.f[i]);	
                     // i--;
@@ -100,7 +101,7 @@ function updateFollowing() {
     }
 }
 
-//////  this block clicks  on followers element
+//////  this block clicks  on following element
 function checkOutFollowing() {
     _x.oldVal = 0;
     _x.repeatCount = 0;
@@ -110,21 +111,21 @@ function checkOutFollowing() {
 
     _x.following_elm.getElementsByTagName('a')[0].click();
     setTimeout(function() {
-        objDiv = document.getElementsByClassName("_4gt3b")[0];
+        objDiv = document.getElementsByClassName(selectors.objDiv)[0];
         // console.log(objDiv.getElementsByTagName('ul'));
         flwngscr();
     }, 1500);
 }
 ////// 
 
-let eventIng = new CustomEvent(
+_x.eventIng = new CustomEvent(
     "flwngScrlDwn", {
         bubbles: true,
         cancelable: true
     }
 );
 
-let eventEr = new CustomEvent(
+_x.eventEr = new CustomEvent(
     "flwerScrlDwn", {
         bubbles: true,
         cancelable: true
@@ -136,7 +137,7 @@ document.addEventListener("flwngScrlDwn", flwngscr, false);
 
 function flwerscr() {
     // try{
-    objDiv = document.getElementsByClassName("_gs38e")[0];
+    objDiv = document.getElementsByClassName(selectors.objDiv)[0];
     divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
     // console.log(maxLenEr ,divlen);
@@ -144,12 +145,12 @@ function flwerscr() {
     if (maxLenEr > divlen && !_x.TimesRepeted(divlen)) {
         objDiv.scrollTop = objDiv.scrollHeight;
         setTimeout(function() {
-            _x.following_elm.dispatchEvent(eventEr);
+            _x.following_elm.dispatchEvent(_x.eventEr);
         }, 1500)
     } else {
         updateFollowers();
         _x.closeBtn = document.querySelector('.' + selectors.closeBtn);
-        console.log(_x);
+        // console.log(_x);
 
         _x.closeBtn.click();
         setTimeout(function() {
@@ -166,7 +167,7 @@ function flwerscr() {
 
 function flwngscr() {
     try {
-        objDiv = document.getElementsByClassName("_gs38e")[0];
+        objDiv = document.getElementsByClassName(selectors.objDiv)[0];
         divlen = objDiv.getElementsByTagName('ul')[0].childNodes.length;
 
         // _x.TimesRepeted(divlen);
@@ -174,7 +175,7 @@ function flwngscr() {
 
             objDiv.scrollTop = objDiv.scrollHeight;
             setTimeout(function() {
-                _x.following_elm.dispatchEvent(eventIng);
+                _x.following_elm.dispatchEvent(_x.eventIng);
             }, 1500)
 
         } else {
@@ -184,7 +185,7 @@ function flwngscr() {
             "-".repeat(100);
             console.log('%c Here is all what you Wanted. (People who don\'t follow you back)!!', 'font-size:25px; color: red');
             "-".repeat(100);
-            alert("Checkout pop-up");
+            // alert("Checkout pop-up");
 
             for (let i = 0; i < _x.notFollowBack.length; i++) {
                 console.log((i + 1) + "> %chttps://instagram.com/" + _x.notFollowBack[i], 'font-size:16px;color:blue;text-decoration:underline');
@@ -208,4 +209,4 @@ setTimeout(function() {
     flwerscr();
 }, 1500);
 
-////// 
+////// s

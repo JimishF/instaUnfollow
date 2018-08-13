@@ -12,4 +12,4 @@ check people don't follow you back on Instagram.
 
 
 <hr>
-<b> (Actually this works on anyone's Instagram profile. Means you can look into my Unfollowers too XD)
+<b> This works on anyone's Instagram profile (All Public Accounts and Those private accounts which you follow). That means you can look into my Unfollowers too XD. #HappyDigging

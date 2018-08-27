@@ -17,8 +17,8 @@ selectors = {
     modalTrigger: 'Y8-fY',
     unameElement: 'FPmhX',
     userLi: 'NroHT',
-    closeBtn: 'ckWGn',
-    flwTitle: 't48Bo',
+    closeBtn: 'pxaFn',
+    flwTitle: 'm82CD',
     objDiv: "j6cq2"
 }
 console_clear();

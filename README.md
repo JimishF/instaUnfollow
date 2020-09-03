@@ -1,4 +1,4 @@
-# instaUnfollow
+# instaUnfollow (Deprecated)
 check people don't follow you back on Instagram.
 <h3>Here are steps, how to proceed..</h3>
 

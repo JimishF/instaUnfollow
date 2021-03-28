@@ -7,7 +7,7 @@
   if you are still afraid of using this then learn Javascript and DOM to see what I've written.
   
 */
-DEVMOD = true;
+DEVMOD = false;
 
 function console_clear(e) {
     !DEVMOD ? console.clear() : e && e != undefined ? console.error(e) : null

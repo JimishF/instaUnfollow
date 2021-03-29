@@ -15,11 +15,11 @@ function console_clear(e) {
 
 selectors = {
     modalTrigger: 'Y8-fY',
-    unameElement: 'FPmhX',
-    userLi: 'NroHT',
-    closeBtn: 'pxaFn',
+    unameElement: 'd7ByH',
+    userLi: 'wo9IH',
+    closeBtn: 'wpO6b',
     flwTitle: 'm82CD',
-    objDiv: "j6cq2"
+    objDiv: "isgrP"
 }
 console_clear();
 
@@ -56,7 +56,7 @@ function updateFollowers() {
     _x.f = document.getElementsByClassName(selectors.unameElement);
     for (i = 0; i < _x.f.length; i++) {
         if (_x.f[i] != undefined) {
-            _x.followers.push(_x.f[i].innerHTML);
+            _x.followers.push(_x.f[i].innerText);
         }
     }
 }
@@ -66,7 +66,7 @@ function updateFollowing() {
 
     for (i = 0; i < _x.f.length; i++) {
         if (_x.f[i] != undefined) {
-            _x.following.push(_x.f[i].innerHTML);
+            _x.following.push(_x.f[i].innerText);
         }
     }
 
@@ -85,7 +85,7 @@ function updateFollowing() {
     for (i in _x.f) {
         if (_x.f[i] != undefined) {
             try {
-                let tmpUname = ((_x.f[i]).getElementsByClassName(selectors.unameElement))[0].innerHTML;
+                let tmpUname = ((_x.f[i]).getElementsByClassName(selectors.unameElement))[0].innerText;
 
                 if (_x.notFollowBack.includes(tmpUname)) {
                     // console.log(_x.f[i]);

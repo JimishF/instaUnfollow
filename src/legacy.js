@@ -3,11 +3,11 @@
   CAUTION   : Use this script at your own risk :P [BTW I use this too, so nothing to worry ;) ]
   PRIVACY   : By using this script, Nothing will affect on your privacy of account.
   SECURITY  : Your PHOTOS & PASSWORD will be still secure because nothing is related to spoof in this script.
-  
+
   if you are still afraid of using this then learn Javascript and DOM to see what I've written.
-  
+
 */
-DEVMOD = false;
+DEVMOD = process.env.DEVMOD || false;
 
 function console_clear(e) {
     !DEVMOD ? console.clear() : e && e != undefined ? console.error(e) : null
@@ -93,7 +93,7 @@ function updateFollowing() {
                 } else {
                     // console.log(_x.f[i]);
                     _x.f[i].style.display = "none";
-                    // document.getElementsByClassName('_539vh')[0].removeChild(_x.f[i]);	
+                    // document.getElementsByClassName('_539vh')[0].removeChild(_x.f[i]);
                     // i--;
                 }
             } catch (e) {}
@@ -116,7 +116,7 @@ function checkOutFollowing() {
         flwngscr();
     }, 1500);
 }
-////// 
+//////
 
 _x.eventIng = new CustomEvent(
     "flwngScrlDwn", {
@@ -192,7 +192,7 @@ function flwngscr() {
             }
 
             console.log('%c Checkout Popup !! ', 'font-size:25px; color: #70c050;');
-            
+
             !DEVMOD ? _x = {} : null;
             return;
         }
@@ -209,4 +209,4 @@ setTimeout(function() {
     flwerscr();
 }, 1500);
 
-////// 
+//////

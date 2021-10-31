@@ -17,11 +17,17 @@
     "css-loader": "^5.2.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "node-sass": "^5.0.0",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.35.1",
@@ -31,5 +37,13 @@
   },
   "dependencies": {
     "dotenv-webpack": "^7.0.3"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged"
+    }
   }
 }

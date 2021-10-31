@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.dev.js",
     "clean": "rm dist/bundle.js"
   },
   "devDependencies": {

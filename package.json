@@ -44,5 +44,8 @@
     "hooks": {
       "pre-commit": "lint-staged && pretty-quick --staged"
     }
+  },
+  "dependencies": {
+    "dotenv-webpack": "^7.0.3"
   }
 }

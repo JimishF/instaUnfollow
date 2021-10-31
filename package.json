@@ -47,5 +47,13 @@
   },
   "dependencies": {
     "dotenv-webpack": "^7.0.3"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged"
+    }
   }
 }

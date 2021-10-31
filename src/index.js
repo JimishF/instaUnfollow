@@ -1,7 +1,7 @@
-import './styles/main.scss';
+import './legacy';
 
 const App = () => {
-  console.log('Hello world');
+  console.log('App Initialized');
 };
 
 App();

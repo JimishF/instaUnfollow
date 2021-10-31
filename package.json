@@ -17,22 +17,31 @@
     "css-loader": "^6.5.0",
     "eslint": "^8.1.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.1",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^12.3.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.61.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0",
-    "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "dotenv-webpack": "^7.0.3"
-  },
-  "resolutions": {
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },  "resolutions": {
     "ansi-regex": "6.0.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged"
+    }
   }
 }

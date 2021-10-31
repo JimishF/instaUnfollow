@@ -1,15 +1,26 @@
-# instaUnfollow (Deprecated)
+# Insta Unfollow (WIP)
 check people don't follow you back on Instagram.
-<h3>Here are steps, how to proceed..</h3>
 
-<ul>  
-<li><b>step 1 > </b> <i>Open Your Instagram profile ( instagram.com/YourId ).</i></li>
-<li><b>step 2 > </b> <i>Open console from developer tools ( press F12 or ctrl+shift+i ).</i></li>
-<li><b>step 3 > </b> <i>Copy script from  "index.obf.js"( easy, just one line ) or "index.js"(pretty much messy) </i></li>
-<li><b>step 4 > </b> <i>Paste script in to console opened at Instagram.</i></li>
-<li><b>step 5 > </b> <i>Press Enter & see magic !!</i></li>
-</ul>
+### Here are steps, how to proceed
+
+1. Open Your Instagram profile ( instagram.com/YourId ).
+2. Open console from developer tools ( press F12 or ctrl+shift+i ).
+3. Copy script from `dist/bundle.js`
+4. Paste script in to console opened at Instagram.
+5. Press Enter & see magic !!
 
 
-<hr>
-<b> This works on anyone's Instagram profile (All Public Accounts and Those private accounts which you follow) XD. </b>
+> Note:  This works on anyone's Instagram profile (All Public Accounts and Those private accounts which you follow) XD.
+
+---
+
+## Setup Instructions (For Dev):
+### Install Dependencies
+```shell
+yarn install
+```
+
+### Build
+```shell
+yarn build  
+```

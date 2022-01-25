@@ -24,3 +24,8 @@ yarn install
 ```shell
 yarn build  
 ```
+
+### Start dev server
+```shell
+yarn start
+```

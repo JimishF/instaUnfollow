@@ -38,7 +38,8 @@
     "ansi-regex": "6.0.1"
   },
   "dependencies": {
-    "dotenv-webpack": "^7.0.3"
+    "dotenv-webpack": "^7.0.3",
+    "rxjs": "^7.5.2"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
